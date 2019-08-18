@@ -8,9 +8,9 @@ def tool_image(self, filename):
 
 class Tool(models.Model):
 	name = models.CharField(max_length=75)
-	code = models.CharField(max_length=50)
-	description = models.CharField(max_length=300, blank=True)
-	measure = models.CharField(max_length=10)
+	model = models.CharField(max_length=75)
+	brand = models.CharField(max_length=100)
+	serial_number = models.IntegerField(default=0)
 	status = models.BooleanField(default=True)
 	category = models.ForeignKey(ToolCategory, on_delete=models.CASCADE)
 	picture = models.ImageField(upload_to=tool_image, blank=True)

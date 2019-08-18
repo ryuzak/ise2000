@@ -122,15 +122,19 @@ AUTH_USER_MODEL = 'accounts.User'
 
 DATABASES = {
     'default': {
-        'ENGINE': config('DB_ENGINE'),
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASS'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT')
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
+EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+EMAIL_HOST = config('EMAIL_HOST',default='')
+EMAIL_HOST_USER = config('EMAIL_USER',default='')
+EMAIL_HOST_PASSWORD = config('EMAIL_PASSWORD',default='')
+EMAIL_PORT = config('EMAIL_PORT',default=587,cast=int)
+EMAIL_USE_TLS = config('EMAIL_TLS',default=True,cast=bool)
+DEFAULT_FROM_EMAIL = config('EMAIL_DEFAULT')
+EMAIL_SUBJECT_PREFIX = '[ISE 2000 S.A. de C.V.]'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -170,6 +174,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #-- drf auth config --#
 REST_FRAMEWORK = {

@@ -16,6 +16,7 @@ class CreateUserAPIView(APIView):
 
     def post(self, request):
         user = request.data
+        print(user)
         serializer = UserSerializer(data=user)
         serializer.is_valid(raise_exception=True)
         serializer.save()
@@ -38,10 +39,12 @@ class RetreiveUpdateUserAPIView(APIView):
 
 	def put(self, request, user_id):
 		user_obj = User.objects.get(pk=user_id)
-		serializer_data = request.data.get('user',{})
+		serializer_data = request.data
 		serializer = UserSerializer(instance=user_obj, data=serializer_data, partial=True)
+		print(serializer_data)
 		serializer.is_valid(raise_exception=True)
 		serializer.save()
+		print('saved')
 		return Response(serializer.data, status=status.HTTP_200_OK)
 
 	def delete(self, request, user_id):
@@ -50,3 +53,12 @@ class RetreiveUpdateUserAPIView(APIView):
 		user_obj.save()
 		serializer = UserSerializer(user_obj)
 		return Response(serializer.data, status=status.HTTP_200_OK)
+
+class ActivationEmailUserAPIView(APIView):
+	permission_classes = (AllowAny,)
+
+	def get(self, request, uidb64, token):
+
+		user_activation = User.actiavation_url(uidb64, token)
+
+		return Response({'actiation':user_activation}, status=status.HTTP_200_OK)
