@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'building_work',
     'exit_order',
     'purchase_order',
+    'tool_stock',
 
     #third-party
     'rest_framework',

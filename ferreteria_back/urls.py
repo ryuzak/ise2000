@@ -31,6 +31,7 @@ urlpatterns = [
     path('category/products/', include('product_category.urls',)),
     path('category/tools/', include('tool_category.urls',)),
     path('stock/products/', include('product_stock.urls',)),
+    path('stock/tools/', include('tool_stock.urls',)),
     path('products/', include('products.urls',)),
     path('tools/', include('tools.urls',)),
     path('buildingwork/', include('building_work.urls',)),

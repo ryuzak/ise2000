@@ -12,13 +12,3 @@ class ProductSerializer(serializers.ModelSerializer):
         response = super().to_representation(instance)
         response['category'] = ProductCategorySerializer(instance.category).data
         return response
-
-    # def update(self, instance, validated_data):
-    #     instance.name = validated_data.get('name', instance.name)
-    #     instance.code = validated_data.get('code', instance.code)
-    #     instance.description = validated_data.get('description', instance.description)
-    #     instance.measure = validated_data.get('measure', instance.measure)
-    #     instance.category = validated_data.get('category_id', instance.category)
-    #     instance.save()
-    #     print(instance.__dict__)
-    #     return instance
