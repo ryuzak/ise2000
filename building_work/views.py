@@ -37,6 +37,9 @@ class RetrieveUpdateDeleteBuildingWorkAPIView(APIView):
 	def put(self, request, building_id):
 		building_obj = get_object_or_404(BuildingWork, pk=building_id)
 		serializer_data = request.data.get('building',{})
+		user_id = serializer_data['user']['id']
+		del serializer_data['user']
+		serializer_data['user'] = user_id
 		serializer = BuildingWorkSerializer(instance=building_obj, data=serializer_data, partial=True)
 		serializer.is_valid(raise_exception=True)
 		serializer.save()
