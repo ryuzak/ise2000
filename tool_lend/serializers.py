@@ -21,7 +21,6 @@ class ToolLendSerializer(serializers.ModelSerializer):
 		return response
 
 	def create(self, validated_data):
-		print(validated_data)
 		toollend = ToolLend(
 			lend_date = validated_data.get('lend_date', None),
 			building = validated_data.get('building', ''),

@@ -7,8 +7,9 @@ from accounts.models import User
 
 class ExitOrder(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
-    buiilding = models.ForeignKey(BuildingWork, on_delete=models.CASCADE)
+    building = models.ForeignKey(BuildingWork, on_delete=models.CASCADE)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    
 
     class Meta:
     	db_table = 'exit_order'

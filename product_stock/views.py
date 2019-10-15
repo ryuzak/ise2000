@@ -32,7 +32,7 @@ class CreateProductStockInitialAPIView(APIView):
 		serializer.save()
 		return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-class RetrieveProductCodeAPIView(APIView):
+class RetrieveRegisterProductCodeAPIView(APIView):
 	permission_classes = (IsAuthenticated,)
 
 	def get(self, request, prod_code):
@@ -47,5 +47,18 @@ class RetrieveProductCodeAPIView(APIView):
 			return Response({'message':'El producto ya se encuentra en stock'}, status=status.HTTP_400_BAD_REQUEST)
 		except ProductStock.DoesNotExist:
 			pass
+
+		return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class RetrieveProductCodeAPIView(APIView):
+	permission_classes = (IsAuthenticated,)
+
+	def get(self, request, prod_code):
+		try:
+			prod_stock = ProductStock.objects.get(product__code=prod_code)
+			serializer = ProductStockSerializer(prod_stock)
+		except Product.DoesNotExist:
+			return Response({'message':'El producto no ha sido registrado'}, status=status.HTTP_404_NOT_FOUND)
 
 		return Response(serializer.data, status=status.HTTP_200_OK)
