@@ -57,11 +57,15 @@ INSTALLED_APPS = [
     'exit_order',
     'purchase_order',
     'tool_stock',
+    'tool_lend',
+    'provider',
+    'budget',
 
     #third-party
     'rest_framework',
     'rest_framework_jwt',
     'corsheaders',
+    'drf_yasg',
 
 ]
 
@@ -77,9 +81,11 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = [
-    "https://172.19.0.2:3000",
-]
+CORS_ORIGIN_ALLOW_ALL = True
+
+#CORS_ORIGIN_WHITELIST = [
+#    "https://172.19.0.4:3000",
+#]
 
 CORS_ALLOW_HEADERS = [
     'accept',
@@ -188,7 +194,11 @@ REST_FRAMEWORK = {
     'rest_framework.authentication.BasicAuthentication',
   ),'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
-    )
+    ),'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
+    ),
 }
 
 #-- JWT token config --#

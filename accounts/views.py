@@ -7,7 +7,7 @@ from .serializers import UserSerializer
 from .models import User
 
 class CreateUserAPIView(APIView):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request):
     	serializer = UserSerializer(request.user)

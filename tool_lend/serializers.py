@@ -31,6 +31,7 @@ class ToolLendSerializer(serializers.ModelSerializer):
 		return toollend
 
 	def update(self, instance, validated_data):
+		instance.lend_date = validated_data.get('lend_date', None)
 		instance.return_date = validated_data.get('return_date', None)
 		instance.notes = validated_data.get('notes', None)
 		instance.save()

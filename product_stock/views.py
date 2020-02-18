@@ -62,3 +62,12 @@ class RetrieveProductCodeAPIView(APIView):
 			return Response({'message':'El producto no ha sido registrado'}, status=status.HTTP_404_NOT_FOUND)
 
 		return Response(serializer.data, status=status.HTTP_200_OK)
+
+class RetrieveProductNameListAPIView(APIView):
+	permission_classes = (IsAuthenticated, )
+
+	def get(self, request, prod_name):
+
+		prod_stock = ProductStock.objects.filter(product__name__icontains=prod_name)
+		serializer = ProductStockSerializer(prod_stock, many=True)
+		return Response(serializer.data, status=status.HTTP_200_OK)

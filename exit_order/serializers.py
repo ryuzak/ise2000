@@ -19,7 +19,7 @@ class ExitOrderProductSerializer(serializers.ModelSerializer):
 		return response
 
 class ExitOrderSerializer(serializers.ModelSerializer):
-	products = ExitOrderProductSerializer(read_only=True, many=True)
+	products = ExitOrderProductSerializer(many=True, read_only=True)
 	created_by = UserSerializer(required=False)
 	
 	class Meta:
@@ -38,7 +38,7 @@ class ExitOrderSerializer(serializers.ModelSerializer):
 	def create(self, validated_data, request=None, products=None):
 		print(validated_data)
 		order_obj = ExitOrder(
-			created_date = datetime.today(),
+			created_date = validated_data.get('created_date', datetime.today),
 			building = validated_data.get('building'),
 			created_by = validated_data['request'].user
 		)

@@ -5,16 +5,14 @@ from django.db import models
 from building_work.models import BuildingWork
 from accounts.models import User
 from products.models import Product
+from provider.models import Provider
 # Create your models here.
 class PurchaseOrder(models.Model):
-    purchase_date = models.DateTimeField(auto_now_add=True)
+    purchase_date = models.DateTimeField(default=datetime.today, blank=True)
     delivery_date = models.DateTimeField(default=datetime.today, blank=True)
     building = models.ForeignKey(BuildingWork, on_delete=models.CASCADE, null=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_by')
     deliver_to = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='deliver_to')
-    provider_name = models.CharField(max_length=100)
-    provider_addres = models.CharField(max_length=250)
-    provider_phone = models.CharField(max_length=10)
     total_price = models.FloatField(default=0.0)
     note = models.CharField(max_length=500)
 
@@ -27,6 +25,8 @@ class PurchaseOrderProduct(models.Model):
     unit_price = models.FloatField(default=0.0)
     price = models.FloatField(default=0.0)
     order = models.ForeignKey(PurchaseOrder, on_delete=models.CASCADE)
+    provider = models.ForeignKey(Provider, on_delete=models.CASCADE, null=True)
+    delivered = models.BooleanField(default=False, null=True)
 
     class Meta:
     	db_table = 'pruchase_order_products'

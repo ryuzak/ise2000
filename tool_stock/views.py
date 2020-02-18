@@ -60,3 +60,11 @@ class RetrieveToolModelStockAPIView(APIView):
 			return Response({'message':'La herramienta no ha sido registrada'}, status=status.HTTP_404_NOT_FOUND)
 
 		return Response(serializer.data, status=status.HTTP_200_OK)
+
+class RetrieveToolNameStockAPIView(APIView):
+	permission_classes = (IsAuthenticated,)
+
+	def get(self, request, tool_name):
+		tool_obj = Tool.objects.filter(name__icontains=tool_name)
+		serializer = ToolSerializer(tool_obj, many=True)
+		return Response(serializer.data, status=status.HTTP_200_OK)

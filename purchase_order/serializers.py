@@ -8,15 +8,17 @@ from products.models import Product
 from products.serializers import ProductSerializer
 from building_work.serializers import BuildingWorkSerializer
 from accounts.serializers import UserSerializer
+from provider.serializers import ProviderSerializer
 
 class PurchaseOrderProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = PurchaseOrderProduct
-        fields = ('id', 'product', 'quantity', 'unit_price', 'price', 'order')
+        fields = ('id', 'product', 'quantity', 'unit_price', 'price', 'order', 'provider')
 
     def to_representation(self, instance):
         response = super().to_representation(instance)
         response['product'] = ProductSerializer(instance.product).data
+        response['provider'] = ProviderSerializer(instance.provider).data
         return response
 
 class PurchaseOrderSerializer(serializers.ModelSerializer):
@@ -26,7 +28,7 @@ class PurchaseOrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PurchaseOrder
-        fields = ('id', 'products', 'purchase_date', 'delivery_date', 'building', 'created_by', 'deliver_to', 'total_price', 'note', 'provider_name', 'provider_addres', 'provider_phone')
+        fields = ('id', 'products', 'purchase_date', 'delivery_date', 'building', 'created_by', 'deliver_to', 'total_price', 'note')
 
     def get_validation_exclutions(self):
         exclutions = super(ExitOrderSerializer, self).get_validation_exclutions()
@@ -42,14 +44,11 @@ class PurchaseOrderSerializer(serializers.ModelSerializer):
     def create(self, validated_data, products=None):
         print(validated_data.get('products', []))
         order_obj = PurchaseOrder(
-            purchase_date = datetime.today(),
+            #purchase_date = validated_data.get('purchase_date', '1970-01-01T00:00:00'),
             delivery_date = validated_data.get('delivery_date', '1970-01-01T00:00:00'),
             building = validated_data.get('building', None),
             created_by = validated_data.get('created_by', None),
             deliver_to = validated_data.get('deliver_to', None),
-            provider_phone = validated_data.get('provider_phone', None),
-            provider_addres = validated_data.get('provider_addres', None),
-            provider_name = validated_data.get('provider_name', None),
             total_price = validated_data.get('total_price', 0.00),
             note = validated_data.get('note', '')
         )

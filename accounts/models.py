@@ -41,7 +41,8 @@ class UserManager(BaseUserManager):
             email = self.normalize_email(email),
             is_active=True,
             is_superuser=True,
-            is_staff=True
+            is_staff=True,
+            is_superadmin=True
         )
         user.set_password(password)
         user.save()
@@ -89,9 +90,9 @@ class User(AbstractBaseUser, PermissionsMixin):
                                     'token': token,
                                     })
 
-        #expires_key = datetime.today() + timedelta(2)
+        expires_key = datetime.today() + timedelta(2)
         #-- Save activation token
-        #user_activation = UserRequest.objects.create(user=user, uid=uid, token=token, expires_key=expires_key)
+        user_activation = UserRequest.objects.create(user=user, uid=uid, token=token, expires_key=expires_key)
 
         sendmail(subject, message, settings.DEFAULT_FROM_EMAIL, user.email)
 
@@ -106,10 +107,10 @@ class User(AbstractBaseUser, PermissionsMixin):
         except (TypeError, ValueError, OverflowError, User.DoesNotExist):
             user = None
 
-        if user is not None and account_activation_token.check_token(user, token) and user_activation.activation_status == '0':
+        if user is not None and account_activation_token.check_token(user, token) and user_activation.activation_status == 0:
             user.is_active = True
             user.save()
-            user_activation.activation_status = '1'
+            user_activation.activation_status = 1
             user_activation.save()
 
             return user

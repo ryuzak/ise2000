@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 
 from products.models import Product
@@ -6,7 +8,7 @@ from accounts.models import User
 # Create your models here.
 
 class ExitOrder(models.Model):
-    created_date = models.DateTimeField(auto_now_add=True)
+    created_date = models.DateTimeField(default=datetime.today, blank=True)
     building = models.ForeignKey(BuildingWork, on_delete=models.CASCADE)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     

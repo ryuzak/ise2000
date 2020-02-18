@@ -55,6 +55,8 @@ urlpatterns = [
     path('lend/tools/', include('tool_lend.urls',)),
     path('order/exit/', include('exit_order.urls',)),
     path('order/purchase/', include('purchase_order.urls',)),
+    path('providers/', include('provider.urls',)),
+    path('budgets/', include('budget.urls',)),
 
     re_path(r'^swagger(?P<format>\.json|\.yaml|\.xml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

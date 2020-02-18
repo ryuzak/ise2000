@@ -50,3 +50,11 @@ class RetrieveUpdateDeleteToolAPIView(APIView):
 		tool_obj.save()
 		serializer = ToolSerializer(tool_obj)
 		return Response(status=status.HTTP_200_OK)
+
+class RetrieveToolNameListAPIView(APIView):
+	permission_classes = (IsAuthenticated,)
+
+	def get(self, request, tool_name):
+		tool_obj = Tool.objects.filter(name__icontains=tool_name)
+		serializer = ToolSerializer(tool_obj, many=True)
+		return Response(serializer.data, status=status.HTTP_200_OK)
