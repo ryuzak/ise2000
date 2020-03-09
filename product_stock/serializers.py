@@ -8,7 +8,7 @@ class ProductStockSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProductStock
-        fields = ('id', 'product','unit_price', 'price', 'stock', 'updated_date')
+        fields = ('id', 'product','unit_price', 'price', 'stock', 'updated_date', 'min_stock', )
 
     def to_representation(self, instance):
         response = super().to_representation(instance)

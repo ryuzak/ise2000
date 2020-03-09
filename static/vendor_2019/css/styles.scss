@@ -1,0 +1,575 @@
+/*Colors*/
+$button : #4182ad;
+$blue : #2e4e96;
+$turqz: #53a2b7;
+$gray : #706f6f;
+$boton2016: #0066ad;
+$boton2017: #0a3854;
+$boton2018: #ff6633;
+$tickets: #effcff;
+$stands: #ddf9ff;
+$redes: #94d8ea;
+@font-face{
+    font-family: "Montserrat Bold";
+    src: url("../Fonts/Montserrat/Montserrat-Bold.ttf");
+}
+@font-face{
+    font-family: "Montserrat Regular";
+    src: url("../Fonts/Montserrat/Montserrat-Regular.ttf");
+}
+@font-face{
+    font-family: "Montserrat Italic";
+    src: url("../Fonts/Montserrat/Montserrat-Italic.ttf");
+}
+@font-face{
+    font-family: "Lemon Milk Bold";
+    src: url("../Fonts/Lemon_Milk/LemonMilkbold.otf");
+}
+@font-face{
+    font-family: "Lemon Milk Regular";
+    src: url("../Fonts/Lemon_Milk/LemonMilk.otf");
+}
+@font-face{
+    font-family: "Zilla Slab Medium";
+    src: url("../Fonts/Zilla_Slab/ZillaSlab-Medium.ttf");
+}
+@font-face{
+    font-family: "Zilla Slab Regular";
+    src: url("../Fonts/Zilla_Slab/ZillaSlab-Regular.ttf");
+}
+@font-face{
+    font-family: "Amino-Alt Bold";
+    src: url("../Fonts/Amino_Alt/Amino\ Alt\ Bold.ttf");
+}
+@font-face{
+    font-family: "Amino-Alt Regular";
+    src: url("../Fonts/Amino_Alt/Amino\ Alt.ttf");
+}
+
+/***MENU MOVIL**/
+.bar1, .bar2, .bar3 {
+    width: 30px;
+    height: 3px;
+    background-color:#FFFF;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+    transform: rotate(-45deg) translate(-7px, 7px);
+    background-color: $turqz;
+}
+.change .bar2 {opacity: 0;}
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-5px, -5px);
+    transform: rotate(45deg) translate(-6px, -6px);
+    background-color:$turqz;
+}
+header{
+    height: 120vh;
+    width: 100%;
+    
+}
+.white{
+    width: 100%;
+    //background: white;
+    height: 100vh;
+    position: relative;
+    background-image: url(../img/fondos.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    top: -4rem;
+}
+
+header.d-flex.flex-column{
+    width: 100%;
+    background-image: url(../img/fondo.png);
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    height: 120vh;
+}
+.imageconacua{
+    width: 70%;
+}
+//Animación Wave
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+.waveWrapper{
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -22%;
+    top: 0;
+    margin: auto;
+}
+.waveWrapperInner{
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    bottom: -20px;
+    background-image: linear-gradient(to top, url(../img/fondo.png) 20%, #27273c 80%);
+}
+.bgTop {
+    z-index: 15;
+    opacity: 0.5;
+}
+.bgMiddle {
+    z-index: 7;
+    opacity: 0.75;
+}
+.bgBottom {
+    z-index: 5;
+    //z-index: 0;
+
+}
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+.waveTop {
+    background-size: 50% 80px;
+}
+.waveAnimation .waveTop {
+  animation: move-wave 3s;
+   -webkit-animation: move-wave 3s;
+   -webkit-animation-delay: 1s;
+   animation-delay: 1s;
+}
+.waveMiddle {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+.waveBottom {
+    background-size: 100% 80px;
+}
+.waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
+}
+.waveall{
+    background-image: url(../img/Fondo_web2.png);
+    background-size: cover;
+    //border:1px solid red;
+    width: 100%;
+    //height: 200vh;
+    position: relative;
+    top: 0rem;
+    z-index: 50;
+}
+ul.navbar-nav li.nav-item.boleto > a.nav-link button.btn.btnboleto{
+    background-color: $button;
+    font-size:11pt;
+    font-weight: 600;
+    color: #FFFF;
+}
+ul.navbar-nav li.nav-item.boleto > a.nav-link{
+    background: $button;
+    padding-bottom: 4px;
+    height: 8.5rem;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: -6rem;
+    border-radius: 10%;
+}
+ul.navbar-nav li.nav-item > a.nav-link{
+    color:#FFFF;
+    font-size: 12pt;
+    transition: all .3s ease-out;
+    font-family: 'Montserrat Regular';
+}
+ul.navbar-nav li.nav-item > a.nav-link:hover{
+    border-bottom: 1.5px solid $redes;
+    transform: scale(1.1);
+    color: #FFFF;
+}
+.img-top{
+    width: 10rem;
+}
+.content-header{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}
+div.content-header div.container.text-center h1.name-header{
+    color: #ffffff;
+}
+.year-conacua{
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: $blue;
+    color: #FFFF;
+    width: 50%;
+    font-size: 22pt;
+    font-family: 'Montserrat Bold';
+    box-shadow: 0px 0px 9px 0px $blue;
+}
+.text-conacua{
+    color: $blue;
+    font-weight: 600;
+    font-family: "Zilla Slab Regular";
+}
+ul.nav li.nav-item.button2016 > a.nav-link{
+    color: #FFFF!important;
+    font-weight: 700;
+    text-decoration: none;
+}
+ul.nav li.nav-item.button2016:nth-child(1){
+    background: $boton2016;
+}
+ul.nav li.nav-item.button2016:nth-child(2){
+    background: $boton2017;
+}
+ul.nav li.nav-item.button2016:nth-child(3){
+    background: $boton2018;
+}
+.contenedor{
+    position: relative;
+    top:-5rem;
+}
+.imageOnda{
+    position: absolute;
+    width: 10%;
+    top: 25rem;
+    left: -3rem;
+    z-index: 3;
+}
+.imageFormas{
+    position: absolute;
+    top: 20rem;
+    width: 60%;
+    right: 0%;
+}
+.title-ponents{
+    font-weight: 700;
+    font-size: 24pt;
+    color: $blue;
+    font-family: 'Montserrat Bold';
+}
+.image-border{
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    box-shadow: 0px 0px 9px 0px $gray;
+    margin: 0 auto;
+    display: block;
+}
+.image-title{
+    background: $blue;
+    margin-top: 1rem;
+    padding: 0.3rem;
+    color:#FFFF;
+    font-size: 8pt;
+    font-weight: 600;
+    font-family: "Montserrat Regular";
+}
+.image-text{
+    font-family: "Montserrat Italic";
+    color: $turqz;
+    font-size: 8pt;
+}
+.Informacion{
+    background-image: url(../img/Fondo2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 58rem;
+}
+.tickets{
+    background-color: $tickets;
+    width: 18rem;
+    position: relative;
+    top: -5rem;
+    box-shadow: 0px 0px 9px 0px gray;
+    margin-top: 2rem;
+}
+.title-tickets{
+    background-color: $turqz;
+    padding: 1rem;
+    font-size: 25pt;
+    text-transform: uppercase;
+    color: #FFFF;
+    font-family: "Zilla Slab Medium";
+}
+.number-tickets{
+    font-family: "Amino-Alt Bold";
+    font-size:35pt;
+    color: $blue;
+}
+.price-ticket{
+    font-family: "Amino-Alt Regular";
+    font-size: 18pt;
+    color: $blue;
+    font-weight: 900;
+}
+ul li.style-boleto{
+    list-style: none;
+    font-size: 10pt;
+    color: $gray;
+}
+i.fas.fa-check{
+    color: $turqz;
+}
+.button-shop{
+    background-color: $turqz;
+    padding: 1rem;
+    color: #FFFF;
+    font-size: 24pt;
+    box-shadow: 0px 0px 9px 0px #9999;
+    text-transform: uppercase;
+    position: relative;
+    font-family: 'Lemon Milk Regular';
+}
+.img-icono{
+    height:200px;
+}
+.title-icono{
+    font-size: 15pt;
+    background-color: $blue;
+    color: #FFFF;
+    padding: 1rem;
+    text-transform: uppercase;
+}
+.info-icono{
+    position: relative;
+    top: -5rem;
+}
+.imageOndaTwo{
+    width: 20%;
+}
+.image-formaTwo{
+    position: relative;
+    top: -12rem;
+    width:40%;
+}
+.rectang-contacto{
+    background-color: $blue;
+    color: #FFFF;
+    box-shadow: 0px 0px 9px 0px #9999;
+}
+.line{
+    width: 50%;
+    background-color: $turqz;
+    height: 1.5px;
+}
+#mapid{ 
+    height: 400px;
+    pointer-events: none;
+}
+.map{
+    height: 36rem;
+}
+.bottom-image{
+    background-image: url(../img/Contacto_Fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 1rem;
+    height: 20rem;
+}
+.bottom-contact{
+    width: 7%;
+    height: 7%;
+}
+.text-bottom{
+    color : $redes;
+    text-transform: uppercase;
+    font-size: 12pt;
+}
+.privacidad{
+    background-color: #071d45;
+    color: #FFFF;
+    text-transform: uppercase;
+    font-family: 'Amino-Alt Regular';
+    font-size:10pt;
+    border-top:1px solid $turqz;
+}
+//Footer
+footer.style-footer{
+    height: 50%;
+    display: flex;
+    align-items: center;
+    color:#FFFF;
+    background-color: #838383;
+}
+footer.style-footer .container .menu-footer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+.modal-body{
+    background-image: url('../img/boletos/Fondo\ ondas.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.line-boleto{
+    width: 100%;
+    background: lightgray;
+    height: 1px;
+}
+.modal-title{
+    color: #FFFF;
+    font-family: 'Lemon Milk Regular';
+    font-size: 22pt;
+}
+.item-boletos{
+    background-color: lightgrey;
+}
+.item-ticketOne{
+    display:none;
+}
+.item-ticketTwo{
+    color: gray;
+    font-size:14pt;
+    font-family: 'Montserrat Bold'
+}
+.btn.btn-continue{
+    background-color: $blue;
+    font-size: 11pt;
+    border-radius: 0%; 
+    color : #FFFF; 
+    font-family: 'Montserrat Bold';
+}
+.text-footer{
+    color: $blue;
+    font-size:12pt;
+    font-family: 'Amino-Alt Bold';
+}
+.title-footer{
+    font-size:18pt;
+    color: $blue;
+    font-family: 'Zilla Slab Regular';
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.subtitle-footer{
+    font-size: 12pt;
+    color: $turqz;
+    font-family:"Amino-Alt Bold";
+}
+//RESPONSIVE
+@media (max-width:1200px){
+    .Informacion{
+        height: 65rem;
+    }
+    .image-formaTwo{
+        top: -10rem;
+    }
+}
+@media (max-width:1024px){
+    .Informacion{
+        height: 60rem;
+    }
+    .image-formaTwo{
+        top: -7rem;
+    }
+    header.d-flex.flex-column{
+        height: 126vh;
+    }
+    .ponentesflex{
+        flex-wrap: wrap;
+    }
+    ul.navbar-nav li.nav-item > a.nav-link.menu{
+        width: 50%;
+    }
+    ul.navbar-nav li.nav-item.boleto>a.nav-link{
+        height: auto;
+        margin-top:auto;
+        border-radius: 5px;
+        width: 50%;
+    }
+}
+@media (max-width:768px){
+    .menu-top{
+        background-color:#2e4e96;
+    }
+    .waveWrapper{
+        bottom: -27%;
+    }
+    .ponentes{
+        margin-top: 15%;
+    }
+    .imageFormas{
+        top: 16rem;
+    }  
+    .imageconacua{
+        width: 50%;
+    }
+    .ticket{
+        flex-wrap:wrap;
+    }
+    .info-icono{
+        flex-wrap: wrap;
+    } 
+    .Informacion{
+        height: 85rem;
+    }
+}
+@media (max-width:425px){
+    .stands{
+        flex-wrap: wrap;
+    }
+    .imgconacua{
+        height: 70%;
+    }
+    .imageFormas{
+        top: 9rem;
+    }
+    .ponentesflex{
+        justify-content: center!important;
+    }
+    .tickets{
+        margin-top:4rem;
+    }
+    .map{
+        height: 60rem;
+    }
+    .image-formaTwo{
+        top: -31rem;
+    }
+}
+@media (max-width:375px){
+    header.d-flex.flex-column{
+        height: 40rem;
+    }
+    .waveWrapper {
+        bottom: -4rem;
+    }
+    .font-conacua{
+        font-size: 12pt;
+    }
+}
+@media (max-width:320px){
+    .imgconacua{
+        height: 60%;
+    }
+    .image-fondo{
+        align-items:center;
+    }
+    .imageFormas {
+        top: 7rem;
+    }
+}

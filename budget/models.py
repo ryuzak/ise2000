@@ -13,6 +13,7 @@ class Budget(models.Model):
     product_cost_subtotal = models.FloatField(default=0.0)
     work_price_subtotal = models.FloatField(default=0.0)
     sale_price_subtotal = models.FloatField(default=0.0)
+    actual_budget_subtotal = models.FloatField(default=0.0)
 
     class Meta:
         db_table = 'budgets'

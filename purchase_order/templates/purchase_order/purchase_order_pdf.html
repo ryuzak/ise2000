@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>
+            pdf order {{order.id}}
+        </title>
+    </head>
+    <body>
+    <div>
+        <div > 
+            <table style="width:100%">
+                <tr >
+                    <td style="text-aling: center;">
+                        <h3> Orden de compra: {{order.id}}</h3>
+                    </td>
+                </tr>
+            </table>
+            <table style="width:30%;">
+                <tr>
+                    <td style="text-aling:rigth; font-size:12px;">
+                        <b>Fecha:</b> {{order.created_date | date:"d-m-Y"}}
+                    </td>
+                </tr>
+            </table>
+            <br>
+        </div>
+        <div>
+            <table style="border: 1px solid #000;border-radius:5px;  font-size:12px;">
+                <tr>
+                    <td style="width:45%">
+                        <b>Consignese a:</b> ISE 2000 S.A. de C.V.
+                    </td>
+                    <td style="width:10%">
+                    </td>
+                    <td style="width:45%">
+                        <b>Obra:</b> {% if order.building %} order.building.project_name {% else %} Sin asignar {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:45%"> 
+                        <b>Fecha de entrega:</b> {{order.delivery_date | date:"d-m-Y"}} 
+                    </td>
+                    <td style="width=10%">
+                    </td>
+                    <td style="width:45%">
+                        <b>Entregar a:</b> {{order.deliver_to.first_name}} {{order.deliver_to.last_name}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <br>
+    <div>
+        <!-- Start Styles. Move the 'style' tags and everything between them to between the 'head' tags -->
+        <style type="text/css">
+            .myTable { background-color:#eee;border-collapse:collapse;width:100%; }
+            .myTable th { background-color:#000;color:white; font-size:12px; }
+            .myTable td { border:1px solid #000; font-size:12px;}
+        </style>
+        <!-- End Styles -->
+        <table class="myTable">
+            <tr>
+                <th> Id</th>
+                <th> Producto</th>
+                <th> Codigo</th>
+                <th> Proveedor</th>
+                <th> Precio unitario</th>
+                <th> Cantidad</th>
+                <th> Total</th>
+            </tr>
+            {% for prod in product_list %}
+            <tr>
+                <td> {{prod.id}}</td>
+                <td> {{prod.product.name}}</td>
+                <td> {{prod.product.code}}</td>
+                <td> {{prod.provider.name}}</td>
+                <td> $ {{prod.unit_price}}</td>
+                <td> {{prod.quantity}}</td>
+                <td> $ {{prod.price}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <br>
+        <br>
+        <table style="border: 1px solid #000;border-radius:5px; width:75%;  font-size:12px;">
+            <tr >
+                <td>
+                    <b>Observaciones: </b> {{order.note}}
+                </td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <table>
+            <tr><td style="width:65%">             </td><td style="text-decoration:underline; font-size:16px;">     {{user.first_name}} {{user.last_name}}     </td></tr>
+            <tr><td style="width:65%">             </td><td style="font-size=12px">   Atentamente</td></tr>
+        </table>
+
+    </div>
+    </body>
+</html>

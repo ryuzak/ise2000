@@ -1,0 +1,611 @@
+:root{
+    --tinto: #651413;
+    --rosa: #ec306b;
+    --amarillo: #fbcd38;
+    --tinto-oscuro: #420e0e;
+    --width: 100%;
+}
+@font-face {
+    font-family: gotham;
+    src: url(/static/vendor/custom/fuentes/gotham/Gotham-XLight.otf);
+    font-weight: 100;
+}
+@font-face {
+    font-family: gotham;
+    src: url(/static/vendor/custom/fuentes/gotham/Gotham-Light.otf);
+    font-weight: 300;
+}
+@font-face {
+    font-family: gotham;
+    src: url(/static/vendor/custom/fuentes/gotham/Gotham-Medium.otf);
+    font-weight: 500;
+}
+@font-face {
+    font-family: gotham;
+    src: url(/static/vendor/custom/fuentes/gotham/Gotham-Bold.otf);
+    font-weight: 700;
+}
+body{
+    font-family: gotham;
+}
+header img{
+    width: 100%;
+}
+.navbar{
+    background-color: transparent;
+    height: 120px;
+    transition: all .3s ease;
+}
+.navbar.scrolled{
+    background-color: #982424;
+    height: 90px;
+}
+.navbar .navbar-brand img{
+    height: 80px;
+}
+.nav-redes .nav-item .nav-link img{
+    height: 25px;
+}
+.navbar .nav-item .nav-link{
+    color: #fff;
+}
+.navbar .navbar-nav:not(.nav-redes) .nav-item .nav-link{
+    padding-left: .6rem;
+    padding-right: .6rem;
+    font-family: gotham;
+    font-weight: 100;
+    text-shadow: 1px 1px 5px #000000;
+}
+.navbar .navbar-nav:not(.nav-redes) .nav-item:first-child .nav-link,
+.navbar .navbar-nav:not(.nav-redes) .nav-item:last-child .nav-link{
+    background-color: var(--tinto);
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+.navbar .navbar-nav:not(.nav-redes) .nav-item:first-child .nav-link{
+    background-color: var(--rosa);
+}
+.article{
+    background-image: url(/static/vendor/custom/img/evento3.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.article .evento img{
+    height: 150px;
+}
+.article .evento h1,
+.article .evento h6{
+    font-family: gotham;
+    font-weight: 700;
+    color: var(--rosa);
+}
+.article .evento h6{
+    font-family: gotham;
+    font-weight: 500;
+}
+.article .programa img{
+    height: 100px;
+}
+.galeria h1,
+.lugar h3,
+.article .programa h1{
+    font-family: gotham;
+    font-weight: 700;
+    color: var(--tinto);
+    text-shadow: 1px 2px 3px #555;
+    font-size: 54px;
+}
+.text-red{
+    color: var(--tinto);
+}
+.programa .hora{
+    background-color: var(--amarillo);
+}
+.programa h6,
+.programa .hora h4{
+    font-family: gotham;
+    font-weight: 500;
+}
+.programa h6{
+    font-weight: 700;
+}
+.programa .row > div:first-child{
+    border-right: 1px solid var(--tinto);
+}
+.programa .row > div:last-child{
+    border-left: 1px solid var(--tinto);
+}
+.galeria h6,
+.lugar h6{
+    font-family: gotham;
+    font-weight: 300;
+}
+.clip{
+    -webkit-clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+    width: 60%;
+}
+.locacion > div:not(.info) {
+    left: 0;
+    width: 100%;
+}
+.locacion .info{
+    left: calc(50% - 550px) !important;
+    display: inline;
+    top: 15%;
+}
+.locacion .info h3{
+    background-color: var(--amarillo);
+    padding: 10px;
+    display: inline-block;
+}
+.galeria > .galeria{
+    background-image: url(/static/vendor/custom/img/fondo_galeria.png);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    padding-top: 80px;
+    padding-bottom: 100px;
+    margin-top: -80px;
+}
+.galeria .boletos{
+    background-image: url(/static/vendor/custom/img/fondo_boletos.png);
+    background-size: 100% contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin-top: -50px;
+}
+.galeria img{
+    max-height: 150px;
+}
+.boletos{
+    padding-top: 80px;
+    padding-bottom: 120px;
+}
+.boletos .boleto{
+    background-color: #fff;
+}
+.boletos .boleto h6{
+    font-size: .6rem;
+    font-weight: 700;
+}
+.boletos .boleto h2{
+    background-color: var(--amarillo);
+    font-weight: 700;
+    padding: 10px 0;
+}
+.boletos .btn-boleto{
+    background-color: var(--tinto);
+    border: 1px solid var(--tinto);
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-top: 25px;
+    padding: 10px 40px;
+    cursor: pointer;
+}
+footer{
+    background-color: #641413;
+}
+footer .tel{
+    height: 18px;
+    margin-right: 5px;
+    margin-top: -4px;
+}
+footer .subfooter{
+    background-color: var(--tinto-oscuro);
+}
+footer a:hover{
+    text-decoration: none;
+}
+footer p{
+    font-size: .6rem;
+}
+@media(max-width: 767.99px){
+    .navbar{
+        height: auto;
+        background-color: #982424;
+    }
+    .navbar .navbar-brand img{
+        height: 44px;
+    }
+    .navbar.scrolled{
+        height: auto;
+    }
+    body{
+        padding-top: 70px;
+    }
+    .navbar-toggler img{
+        height: 30px;
+    }
+    .nav-redes{
+        flex-direction: row;
+    }
+    .nav-redes .nav-item .nav-link{
+        margin-right: 10px;
+    }
+    .article .evento .col-md-3{
+        margin-bottom: 30px;
+    }
+    .lugar .locacion{
+        flex-direction: column;
+    }
+    .lugar .locacion .position-absolute:not(.info){
+        position: relative !important;
+    }
+    .lugar iframe{
+        width: 100%;
+    }
+    .lugar .clip{
+        clip-path: none;
+        width: 100%;
+    }
+    .lugar .info{
+        top: 0;
+        left: 15px !important;
+    }
+    .galeria .col-6{
+        margin-bottom: 20px;
+    }
+    .boletos .boleto{
+        margin-top: 20px;
+    }
+}
+
+
+.modal .modal-header{
+    background-color: var(--amarillo);
+}
+.modal .img-entradas{
+    height: 50px;
+}
+.modal h1{
+    margin: 0 auto;
+    width: 100%;
+}
+.modal .modal-body{
+    background-image: url(/static/vendor/custom/img/fondo.png);
+    background-position: center bottom;
+    background-size: cover;
+    padding: 10px 30px;
+}
+.modal .entrada .col-lg-3{
+    background-color: #df785e;
+    padding: 0 30px;
+}
+.modal .entrada .col-lg-9{
+    padding: 15px 20px;
+}
+.modal .entrada h5{
+    color: #a1a1a1;
+}
+.modal .entrada h5 span{
+    color: #ea5733;
+}
+.modal .entrada{
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.modal .entrada h6{
+    padding: 0 15px;
+    color: #949494;
+}
+.entrada:after{
+    position: absolute;
+    width: 8px;
+    height: 100%;
+    content: "";
+    left: 0;
+    top: 0;
+}
+.entrada:nth-child(1):after{
+    background-color: #ea5733;
+}
+.entrada:nth-child(2):after{
+    background-color: #8b1c1c;
+}
+.entrada:nth-child(3):after{
+    background-color: #fbcd38;
+}
+.entrada .form-control:focus{
+    border-color: var(--tinto);
+    box-shadow: 0 0 0 0.2rem rgba(101,20,19,.25);
+}
+.entrada .form-control{
+    border-radius: 0;
+}
+.entrada .boleto-agotado{
+    background-color: #dbdbdb !important;
+    display: none !important;
+}
+.entrada .boleto-agotado img{
+    height: 34px;
+}
+.entrada .boleto-agotado h4{
+    color: #9a9a9a;
+}
+.entrada.agotado div:nth-child(2){
+    display: none !important;
+}
+.entrada.agotado .boleto-agotado{
+    display: flex !important;
+}
+.tarjetas img{
+    height: 40px;
+}
+.entrada{
+    box-shadow: 2px 2px 10px #dbdbdb;
+}
+.modal .modal-footer{
+    border-top: 1px solid #d1d1d1;
+    background-color: #ededed;
+}
+.modal .modal-footer h6{
+    color: #8b8b8b;
+}
+.modal .modal-footer h6 span{
+    color: #ea5733;
+}
+.modal .modal-footer button{
+    background-color: #651413;
+    border-color: #651413;
+    border-radius: 0;
+}
+.modal .modal-footer button.cancel {
+    background-color: #d2d2d2;
+    border-color: #651413;
+    color: #651413;
+    border-radius: 0;
+}
+@media (max-width: 991.98px) {
+    .modal .entrada .col-lg-3{
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+@media (max-width: 575.98px) {
+    .modal .modal-footer{
+        flex-direction: column;
+    }
+    .modal .modal-footer button{
+        margin-top: 20px;
+    }
+}
+
+
+
+
+/***** Boletos *****/
+.amarillo{
+    border-left: 8px solid var(--amarillo);
+    padding-left: 10px;
+}
+body.form-back{
+    background-image: url(/static/vendor/custom/img/FondoFijo.png);
+    background-attachment: fixed;
+    background-size: cover;
+    padding-top: 120px;
+}
+.yellow-card{
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px 10px gray;
+}
+.yellow-card .card-header{
+    border-radius: 0;
+    background-color: var(--amarillo);
+    border-left: 8px solid var(--tinto);
+    padding-left: 10px;
+    border-bottom: 0;
+}
+.yellow-card .card-header img{
+    height: 30px;
+    margin-right: 10px;
+}
+.yellow-card .table{
+    margin-bottom: 80px;
+}
+.yellow-card .total{
+    right: 0;
+    bottom: 0;
+}
+.yellow-card .total span{
+    background-color: var(--tinto);
+    padding: 10px;
+    display: inline-block;
+}
+.yellow-card .total h6{
+    background-color: #e5e5e5;
+    color: #ea5733;
+}
+.img-tarjeta{
+    height: 40px;
+    margin-right: 10px;
+}
+.img-tarjeta + h6{
+    color: #ea5733;
+}
+.btn-comprar img{
+    height: 25px;
+}
+.btn-comprar{
+    background-color: var(--tinto);
+    padding: 5px 10px;
+    border: 0;
+}
+.yellow-card .form-control{
+    background-color: #eeeeee;
+}
+.yellow-card span,
+.yellow-card h6.naranja{
+    position: relative;
+    color: #ea5733;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.yellow-card .form-control{
+    background-color: #eeeeee;
+    border: 1px solid #e5e5e5;
+    border-radius: 0;
+}
+.yellow-card .form-control:focus{
+    border-color: var(--tinto);
+    box-shadow: 0 0 0 0.2rem rgba(101,20,19,.25);
+}
+.yellow-card input+span{
+    color: #333;
+    font-weight: 300;
+    text-transform: none;
+}
+.yellow-card .total span:after,
+.yellow-card input+span:after{
+    all: initial;
+}
+.span-check{
+    color: #ea5733 !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+}
+.yellow-card > .yellow-card{
+    margin-bottom: 0;
+    box-shadow: 0 0 0; 
+}
+.img-map {
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+}
+.wrapper .col-md-4 .yellow-card > .yellow-card:nth-child(3) .card-body{
+    padding-bottom: 0;
+}
+.wrapper .col-md-4 .yellow-card > .yellow-card .card-body p:first-child{
+    position: relative;
+}
+.yellow-card h6:after,
+.yellow-card span:after,
+.wrapper .col-md-4 .yellow-card > .yellow-card .card-body p:first-child:after{
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 10px;
+    left: -10px;
+    top: 2px;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;  
+    border-left: 6px solid #ea5733;
+}
+.hoteles + .card-body{
+    padding-top: 0;
+}
+.yellow-card h6 span:after,
+h6.font-weight-light:after,
+.img-tarjeta + h6:after,
+.yellow-card span.no:after{
+    all: initial;
+}
+.yellow-card h6 span{
+    color: #ea5733; 
+}
+.text-dark img{
+    height: 24px;
+}
+.text-dark + h6{
+    color: #ea5733;
+}
+.overlay{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+.overlay .compra{
+    width: 600px;
+    border: 1px solid var(--amarillo);
+    background-color: #372c2c;
+    background-image: url(/static/vendor/custom/img/camaron.png);
+    background-position: center;
+    background-size: cover;
+}
+.img-confirmacion {
+    height: 50px;
+}
+.overlay button{
+    background-color: #fff;
+    border: 1px solid #fff;
+    padding: 6px 20px;
+    cursor: pointer;
+}
+.overlay h2{
+    color: var(--amarillo);
+}
+.overlay h2 span{
+    background-color: var(--amarillo);
+    font-size: 1.1rem;
+}
+/****** Hoteles Index *********/
+.lugar .yellow-card{
+    box-shadow: 0 0 0 !important;   
+}
+.lugar .yellow-card .img-map{
+     margin-left: 0; 
+     margin-right: 0; 
+}
+.lugar .yellow-card .row .col-sm-4{
+    margin-top: 30px;
+}
+footer:after{
+    position: absolute;
+    content: "";
+    height: 40px;
+    width: 100%;
+    top: -40px;
+    background-image: url(/static/vendor/custom/img/triangulos%20tintos-05.png);
+    background-size: cover;
+}
+#modalHotel .modal-lg,
+.modalPrograma .modal-lg{
+    max-width: 1200px;
+}
+.col-md[data-toggle='modal']{
+    cursor: pointer;
+}
+.modalPrograma .modal-header{
+    background-color: transparent;
+    border: 0;
+}
+.modalPrograma .modal-header img{
+    height: 100px;
+}
+.modalPrograma .modal-body{
+    background-image: none;
+}
+.modalPrograma .modal-footer button img{
+    height: 30px;
+}
+.modalPrograma .modal-content{
+    background-image: url(/static/vendor/custom/img/evento3.png);
+    background-size: cover;
+}
+.modalPrograma .modal-footer{
+    background-color: #fff;
+    border: 0;
+}
+#modalHotel .modal-header{
+    border-left: 10px solid var(--tinto);
+    border-top-left-radius: 0;
+     border-top-right-radius: 0; 
+}
+#modalHotel .modal-body{
+    background-image: none;
+}
+.icon-hotel {
+    height: 36px;
+}
+.box_invoice_show{
+    display: none;
+}

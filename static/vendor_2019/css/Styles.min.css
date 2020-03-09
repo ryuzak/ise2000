@@ -1,0 +1,254 @@
+@font-face{font-family:"Montserrat Bold";src:url(../Fonts/Montserrat/Montserrat-Bold.ttf)}
+@font-face{font-family:"Montserrat Regular";src:url(../Fonts/Montserrat/Montserrat-Regular.ttf)}
+@font-face{font-family:"Montserrat Italic";src:url(../Fonts/Montserrat/Montserrat-Italic.ttf)}
+@font-face{font-family:"Montserrat SemiBold";src:url(../Fonts/Montserrat/Montserrat-SemiBold.ttf)}
+@font-face{font-family:"Lemon Milk Bold";src:url(../Fonts/Lemon_Milk/LemonMilkbold.otf)}
+@font-face{font-family:"Lemon Milk Regular";src:url(../Fonts/Lemon_Milk/LemonMilk.otf)}
+@font-face{font-family:"Zilla Slab Medium";src:url(../Fonts/Zilla_Slab/ZillaSlab-Medium.ttf)}
+@font-face{font-family:"Zilla Slab Regular";src:url(../Fonts/Zilla_Slab/ZillaSlab-Regular.ttf)}
+@font-face{font-family:"Amino-Alt Bold";src:url("../Fonts/Amino_Alt/Amino Alt Bold.ttf")}
+@font-face{font-family:"Amino-Alt Regular";src:url("../Fonts/Amino_Alt/Amino Alt.ttf")}
+.menu-top{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.menu-top2{-webkit-transition:all .3s ease-in;transition:all .3s ease-in;background-color:#53a2b7!important}
+.img-top{-webkit-transition:all .3s ease-in;transition:all .3s ease-in}
+.bar1,.bar2,.bar3{width:30px;height:3px;background-color:#fffF;margin:6px 0;-webkit-transition:.4s;transition:.4s}
+.change .bar1{-webkit-transform:rotate(-45deg) translate(-6px,6px);transform:rotate(-45deg) translate(-7px,7px);background-color:#fffF}
+.change .bar2{opacity:0}
+.change .bar3{-webkit-transform:rotate(45deg) translate(-5px,-5px);transform:rotate(45deg) translate(-6px,-6px);background-color:#fffF}
+header{height:135vh;width:100%}
+.white{width:100%;height:100vh;position:relative;background-image:url(../img/fondos.png);background-size:cover;background-position:center;background-repeat:no-repeat;top:-4rem}
+header.d-flex.flex-column{width:100%;background-image:url(../img/fondo.png);background-size:cover;position:relative;background-attachment:fixed;background-position:center;background-repeat:no-repeat;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;height:135vh}
+.imageconacua{width:70%}
+.backgroundred{background-color:red!important}
+@-webkit-keyframes move_wave{
+0%{-webkit-transform:translateX(0) translateZ(0) scaleY(1);transform:translateX(0) translateZ(0) scaleY(1)}
+50%{-webkit-transform:translateX(-25%) translateZ(0) scaleY(.55);transform:translateX(-25%) translateZ(0) scaleY(.55)}
+100%{-webkit-transform:translateX(-50%) translateZ(0) scaleY(1);transform:translateX(-50%) translateZ(0) scaleY(1)}
+}
+@keyframes move_wave{
+0%{-webkit-transform:translateX(0) translateZ(0) scaleY(1);transform:translateX(0) translateZ(0) scaleY(1)}
+50%{-webkit-transform:translateX(-25%) translateZ(0) scaleY(.55);transform:translateX(-25%) translateZ(0) scaleY(.55)}
+100%{-webkit-transform:translateX(-50%) translateZ(0) scaleY(1);transform:translateX(-50%) translateZ(0) scaleY(1)}
+}
+.waveWrapper{overflow:hidden;position:absolute;left:0;right:0;bottom:-36%;top:0;margin:auto}
+.waveWrapperInner{position:absolute;width:100%;overflow:hidden;height:100%;bottom:-20px;background-image:-webkit-gradient(linear,left bottom,left top,color-stop(20%,url(../img/fondo.png)),color-stop(80%,#27273c));background-image:linear-gradient(to top,url(../img/fondo.png) 20%,#27273c 80%)}
+.bgTop{z-index:15;opacity:.5}
+.bgMiddle{z-index:7;opacity:.75}
+.bgBottom{z-index:5}
+.wave{position:absolute;left:0;width:200%;height:100%;background-repeat:repeat no-repeat;background-position:0 bottom;-webkit-transform-origin:center bottom;transform-origin:center bottom}
+.waveTop{background-size:50% 80px}
+.waveAnimation .waveTop{animation:move-wave 3s;-webkit-animation:move-wave 3s;-webkit-animation-delay:1s;animation-delay:1s}
+.waveMiddle{background-size:50% 100px}
+.waveAnimation .waveMiddle{-webkit-animation:move_wave 10s linear infinite;animation:move_wave 10s linear infinite}
+.waveBottom{background-size:100% 80px}
+.waveAnimation .waveBottom{-webkit-animation:move_wave 15s linear infinite;animation:move_wave 15s linear infinite}
+.waveall{background-image:url(../img/Fondo_web2.png);background-size:cover;width:100%;position:relative;top:0;z-index:50}
+ul.navbar-nav li.nav-item.boleto>a.nav-link button.btn.btnboleto{background-color:#53a2b7;font-size:11pt;font-weight:600;color:#fffF}
+ul.navbar-nav li.nav-item.boleto>a.nav-link{background:#53a2b7;padding-bottom:4px;height:8.5rem;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse;margin-top:-6rem;border-radius:10%}
+ul.navbar-nav li.nav-item>a.nav-link{color:#fffF;font-size:12pt;-webkit-transition:all .3s ease-out;transition:all .3s ease-out;font-family:'Montserrat Regular'}
+ul.navbar-nav li.nav-item>a.nav-link:hover{border-bottom:1.5px solid #94d8ea;-webkit-transform:scale(1.1);transform:scale(1.1);color:#fffF}
+.img-top{width:10rem}
+.content-header{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;height:100%;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+div.content-header div.container.text-center h1.name-header{color:#fff}
+.year-conacua{text-transform:uppercase;font-weight:700;background-color:#2e4e96;color:#fffF;width:50%;font-size:22pt;font-family:'Montserrat Bold';-webkit-box-shadow:0 0 9px 0 #2e4e96;box-shadow:0 0 9px 0 #2e4e96}
+.text-conacua{color:#2e4e96;font-weight:600;font-family:"Zilla Slab Regular"}
+ul.nav li.nav-item.button2016>a.nav-link{color:#fffF!important;font-weight:700;text-decoration:none}
+ul.nav li.nav-item.button2016:nth-child(1){background:#0066ad}
+ul.nav li.nav-item.button2016:nth-child(2){background:#0a3854}
+ul.nav li.nav-item.button2016:nth-child(3){background:#f63}
+.contenedor{position:relative;top:-5rem}
+.imageOnda{position:absolute;width:10%;top:25rem;left:-3rem;z-index:3}
+.imageFormas{position:absolute;top:20rem;width:60%;right:0}
+.title-ponents{font-weight:700;font-size:24pt;color:#2e4e96;font-family:'Montserrat Bold'}
+.image-border{border-radius:50%;height:150px;width:150px;-webkit-box-shadow:0 0 9px 0 #706f6f;box-shadow:0 0 9px 0 #706f6f;margin:0 auto;display:block}
+.image-title{background:#2e4e96;margin-top:1rem;padding:.3rem;color:#fffF;font-size:8pt;font-weight:600;font-family:"Montserrat Regular"}
+.image-text{font-family:"Montserrat Italic";color:#53a2b7;font-size:8pt}
+.Informacion{background-image:url(../img/Fondo_BoletosYMasInfo.png);background-repeat:no-repeat;background-size:cover;height:59rem}
+.tickets{background-color:#effcff;width:18rem;position:relative;top:-5rem;-webkit-box-shadow:0 0 9px 0 gray;box-shadow:0 0 9px 0 gray;margin-top:2rem}
+.title-tickets{background-color:#53a2b7;padding:1rem;font-size:25pt;text-transform:uppercase;color:#fffF;font-family:"Zilla Slab Medium"}
+.number-tickets{font-family:"Amino-Alt Bold";font-size:35pt;color:#2e4e96}
+.price-ticket{font-family:"Amino-Alt Regular";font-size:18pt;color:#2e4e96;font-weight:900}
+ul li.style-boleto{list-style:none;font-size:8pt;color:#706f6f;font-family:'Montserrat Regular'}
+i.fas.fa-check{color:#53a2b7}
+.button-shop{background-color:#53a2b7;padding:1rem;color:#fffF;font-size:24pt;-webkit-box-shadow:0 0 9px 0 #9999;box-shadow:0 0 9px 0 #9999;text-transform:uppercase;position:relative;font-family:'Lemon Milk Regular'}
+.img-icono{height:200px}
+.title-icono{font-size:15pt;background-color:#2e4e96;color:#fffF;padding:1rem;text-transform:uppercase}
+.info-icono{position:relative;top:-10rem}
+.imageOndaTwo{width:20%}
+.image-formaTwo{position:relative;top:-12rem;width:40%}
+.rectang-contacto{background-color:#2e4e96;color:#fffF;-webkit-box-shadow:0 0 9px 0 #9999;box-shadow:0 0 9px 0 #9999}
+.line{width:50%;background-color:#53a2b7;height:1.5px}
+#mapid{height:400px}
+.map{height:36rem}
+.bottom-image{background-image:url(../img/Contacto_Fondo.png);background-repeat:no-repeat;background-size:cover;padding:1rem;height:20rem}
+.bottom-contact{width:7%;height:7%}
+.text-bottom{color:#94d8ea;text-transform:uppercase;font-size:12pt}
+.privacidad{background-color:#071d45;color:#fffF;text-transform:uppercase;font-family:'Amino-Alt Regular';font-size:7pt;border-top:1px solid #53a2b7}
+footer.style-footer{height:50%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fffF;background-color:#838383}
+footer.style-footer .container .menu-footer{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;width:100%;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.modal-body{background-image:url("../img/boletos/Fondo ondas.png");background-repeat:no-repeat;background-size:cover;background-color:#dff9ff;padding:7%}
+.line-boleto{width:100%;background:#d3d3d3;height:1px}
+.modal-title{color:#fffF;font-family:'Lemon Milk Regular';font-size:22pt}
+.item-boletos{background-color:#d3d3d3}
+.item-ticketOne{display:none}
+.item-ticketTwo{color:gray;font-size:14pt;font-family:'Montserrat Regular';font-weight:600}
+.btn.btn-continue{background-color:#2e4e96;font-size:11pt;border-radius:0;color:#fffF;font-family:'Montserrat Bold';width:70%}
+.text-footer{color:#2e4e96;font-size:12pt;font-family:'Amino-Alt Bold'}
+.title-footer{font-size:18pt;color:#2e4e96;font-family:'Zilla Slab Regular';font-weight:700;text-transform:uppercase}
+.subtitle-footer{font-size:12pt;color:#53a2b7;font-family:"Amino-Alt Bold";margin-bottom:1px}
+.Infoboleto{width:22%}
+.title-shop{background-color:#53a2b7;color:#fffF;padding:.5rem;font-size:13pt;width:85%;font-family:'Lemon Milk Regular'}
+.title-boleto{font-size:9pt;color:#2e4e96;font-family:'Montserrat Bold'}
+.date{font-size:8pt;color:#706f6f;border-left:1px solid #53a2b7;margin-left:5%;padding-left:3%;font-family:"Montserrat Regular"}
+.boleto-ondas{background-image:url(../CompraBoletos/BarraDerecha/Fondo_ondas510.png);background-repeat:no-repeat;background-color:#effcff;width:90%}
+.input-promo{width:7rem;height:2rem;border:1px solid #d3d3d3}
+.input-button{background:#53a2b7;color:#fffF;border:1px solid #53a2b7;width:2rem}
+.title-price{font-size:9pt;color:#4182ad}
+.radiodesign{display:block;position:relative;padding-left:35px;margin-bottom:12px;cursor:pointer;color:#53a2b7!important;padding-top:.2rem;font-size:10px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.radiodesign input{position:absolute;opacity:0;cursor:pointer}
+.checkmark{position:absolute;top:0;left:-1.5rem;height:25px;width:25px;background-color:#eee;border:1.5px solid #d3d3d3;border-radius:0}
+.radiodesign:hover input~.checkmark{background-color:#ccc}
+.radiodesign input:checked~.checkmark{background-color:#2e4e96}
+.radiodesign:checked{background:#53a2b7}
+.checkmark:after{content:"";position:absolute;display:none}
+.radiodesign input:checked~.checkmark:after{display:block}
+.radiodesign .checkmark:after{left:8px;top:2px;width:7px;height:15px;border:solid #53a2b7;border-width:0 3px 3px 0;-webkit-transform:rotate(45deg);transform:rotate(45deg)}
+.checkdesign{display:block;position:relative;padding-left:35px;cursor:pointer;font-size:15px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;padding-right:.5rem}
+.checkdesign input{position:absolute;opacity:0;cursor:pointer;height:0;width:0}
+.checkmarktwo{position:absolute;top:0;left:0;height:21px;width:31px;background-color:#2e4e96}
+.checkdesign:hover input~.checkmarktwo{background-color:#0a3854}
+.checkdesign input:checked~.checkmarktwo{background-color:#2e4e96}
+.checkdesign:checked{background:#53a2b7}
+.checkmarktwo:after{content:"";position:absolute;display:none}
+.checkdesign input:checked~.checkmarktwo:after{display:block}
+.checkdesign .checkmarktwo:after{left:13px;top:2 px;width:7px;height:15px;border:solid #53a2b7;border-width:0 3px 3px 0;-webkit-transform:rotate(45deg);transform:rotate(45deg)}
+.style-ticket{background:#a1a1a1;color:#fffF;-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out;font-family:'Montserrat Bold'}
+.style-tickettwo{color:#a1a1a1}
+.wizard-card[data-color=red] .choice:hover>.style-ticket, .method-selected p{background:#53a2b7}
+.wizard-card[data-color=red] .choice:hover>.style-tickettwo{color:#5d6769}
+.method-selected .icon{color:#53a2b7 !important; border-color: #53a2b7 !important;}
+.btn-aceptar{background:#2e4e96;border:1px solid #2e4e96;color:#fffF;padding:1%;width:90%;cursor:pointer}
+.buttonConfirm{background:#2e4e96;border:1.5px solid #2e4e96;color:#fffF;width:19%;font-family:'Montserrat SemiBold';cursor:pointer}
+.IconTransfer{background:#53a2b7;padding:2%;color:#fffF}
+.backFondo{background-image:url(../Ticket/Recursos/Fondo_opcion2.png);height:100vh;background-repeat:no-repeat;background-size:cover}
+.ShopTicket{background:#fffF;border-left:10px solid #54a3b7;-webkit-box-shadow:0 0 5px 0 gray;box-shadow:0 0 5px 0 gray;height:130%}
+.title-ticket{color:#53a2b7;font-family:'Zilla Slab Regular';font-weight:600}
+.subtitle-ticket{font-family:'Montserrat Bold';color:#2e4e96}
+.parrafo-ticket{font-size:15pt;color:#706f6f;font-family:'Amino-Alt Regular'}
+.text-ticket{font-family:'Montserrat Bold';color:#83c6d7;-ms-flex-item-align:end;align-self:flex-end}
+.text-more{-ms-flex-item-align:end;align-self:flex-end;font-family:'Amino-Alt Regular';color:#fffF}
+.card-title{font-size:11pt;background:#2e4e96;color:#fffF;padding:2%}
+.card-text{font-size:8pt;font-family:"Montserrat Regular"}
+.slick-track{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.btn-boleto{padding:2%;text-transform:uppercase;color:#fffF;background:#2e4e96;border-radius:5%;display:none;border:1px solid #2e4e96;font-family:'Montserrat Bold';cursor:pointer}
+@media (min-width:2300px){
+.imageFormas{top:27rem}
+.title-ponents{margin-top:1rem!important}
+.Informacion{height:85rem}
+.image-formaTwo{top:-25rem}
+.bottom-image{height:37rem}
+.shop-info{height:40rem!important;-webkit-box-pack:space-evenly!important;-ms-flex-pack:space-evenly!important;justify-content:space-evenly!important}
+.imgconacua{width:100%!important}
+}
+@media (max-width:1200px){
+.Informacion{height:50rem}
+.image-formaTwo{top:-10rem}
+}
+@media (max-width:1130px){
+.ShopTicket{height:105%}
+}
+@media (max-width:1024px){
+.ShopTicket{height:110%}
+.waveWrapper{bottom:-65%}
+.Informacion{height:55rem}
+ul.navbar-nav li.nav-item>a.nav-link{font-size:10pt}
+.image-formaTwo{top:-7rem}
+header.d-flex.flex-column{height:165vh!important}
+.ponentesflex{-ms-flex-wrap:wrap;flex-wrap:wrap}
+ul.navbar-nav li.nav-item>a.nav-link.menu{width:50%}
+ul.navbar-nav li.nav-item.boleto>a.nav-link{height:auto;margin-top:auto;border-radius:5px;width:100%}
+.btn-boleto{display:inherit}
+.Infoboleto{display:none!important}
+}
+@media (max-width:768px){
+.subtitle-ticket{font-size:12pt}
+.sizeFolio{height:65%}
+.text-ticket{font-size:15pt}
+.ShopTicket{height:90%}
+.card{width:100%!important}
+.menu-top{background-color:#2e4e96}
+.waveWrapper{bottom:-71%}
+.ponentes{margin-top:15%}
+.imageFormas{top:16rem}
+.imageconacua{width:50%}
+.ticket{-ms-flex-wrap:wrap;flex-wrap:wrap}
+.info-icono{-ms-flex-wrap:wrap;flex-wrap:wrap}
+.Informacion{height:85rem}
+header.d-flex.flex-column{height:170vh!important}
+}
+@media (max-width:425px){
+.sizeHigth.d-flex.flex-column{height:140vh!important}
+header.d-flex.flex-column{height:224vh!important}
+.flex.flex-column{height:380vh!important}
+.autoplay{display:none}
+.title-ponents.text-center.mt-2{display:none}
+.slick-slide{width:20rem!important;height:20rem}
+.title-logo{font-size:17pt;-webkit-box-pack:center!important;-ms-flex-pack:center!important;justify-content:center!important}
+.font-logo{text-align:center!important}
+.logo{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.backFondo{margin-top:21rem}
+.modal-body{padding:2%!important}
+.modal-footer{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-transition:all .3s;transition:all .3s}
+.info-icono{top:3rem}
+.waveWrapper{bottom:-173%}
+.nav.nav-pills{display:none!important}
+.moving-tab{display:none!important}
+.wizard-container{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
+.card{height:74rem!important}
+.heigthCard{height:24rem!important}
+.mapb{top:0!important;display:-webkit-box;display:-ms-flexbox;display:flex}
+.Infoboleto{width:62%}
+.stands{-ms-flex-wrap:wrap;flex-wrap:wrap}
+.imgconacua{height:70%}
+.imageFormas{top:9rem}
+.ponentesflex{-webkit-box-pack:center!important;-ms-flex-pack:center!important;justify-content:center!important}
+.tickets{margin-top:4rem}
+.map{height:60rem}
+.image-formaTwo{top:-31rem}
+}
+@media (max-width:375px){
+header.d-flex.flex-column{height:40rem}
+.waveWrapper{display:none}
+.font-conacua{font-size:12pt}
+.image-fondo{-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+}
+@media (max-width:320px){
+.imgconacua{height:60%}
+.image-fondo{-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.imageFormas{top:7rem}
+}
+.ponentesflex > .item{
+    cursor: pointer;
+}
+#modalExponentes .modal-body{
+    background: none;
+    padding: 0;
+}
+@media (min-width: 992px){
+    .modal-xl {
+        max-width: 800px;
+    }
+}
+@media (min-width: 1200px){
+    .modal-xl {
+        max-width: 1140px;
+    }
+}
+.form-group > label > label{
+    all: initial;
+    font-family: 'Montserrat Regular';
+    color: red;
+    font-size: 10px;
+    margin-left: 10px;
+}
+

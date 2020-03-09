@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>
+            pdf order {{order.id}}
+        </title>
+    </head>
+    <body>
+    <div width="100%"> 
+        <div style="width:100%;"> 
+            <div style="width:50%;">
+                <h3 style="padding: 10px;">Orden de salida: {{order.id}}</h3>
+            </div>
+            <div style="width:20%; text-aling:rigth;">
+                Fecha: {{order.created_date | date:"d-m-Y"}}
+            </div>
+        </div>
+        <br>
+        <br>
+        <div>
+                {% if order.building %}
+                   <b> <div>Obra: </b> {{order.building.project_name}}</div>
+                    <b> <div>Cliente: </b> {{order.building.client_name}}</div>
+                {% else %}
+                    Sin asignar
+                {% endif %}
+        </div>
+        <br>
+        <br>
+        <!-- Start Styles. Move the 'style' tags and everything between them to between the 'head' tags -->
+        <style type="text/css">
+            .myTable { background-color:#eee;border-collapse:collapse;width:100%; }
+            .myTable th { background-color:#000;color:white; font-size:16px; }
+            .myTable td { border:1px solid #000; }
+        </style>
+        <!-- End Styles -->
+        <table class="myTable">
+            <tr>
+                <th> Id</th>
+                <th> Producto</th>
+                <th> Codigo</th>
+                <th> Precio unitario</th>
+                <th> Cantidad</th>
+                <th> Total</th>
+            </tr>
+            {% for prod in product_list %}
+            <tr>
+                <td> {{prod.id}}</td>
+                <td> {{prod.product.name}}</td>
+                <td> {{prod.product.code}}</td>
+                <td> $ {{prod.unit_price}}</td>
+                <td> {{prod.quantity}}</td>
+                <td> $ {{prod.price}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <br>
+        <br>
+        <table>
+            <tr><td style="width:25%">             </td><td>_________________________</td><td style="width:15%">             </td><td>_________________________</td></tr>
+            <tr><td style="width:25%">             </td><td>{{user.first_name}} {{user.last_name}}</td style="width:15%">          <td></td><td>   Recibido</td></tr>
+        </table>
+
+    </div>
+    </body>
+</html>

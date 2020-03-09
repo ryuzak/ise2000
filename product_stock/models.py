@@ -9,6 +9,7 @@ class ProductStock(models.Model):
 	price = models.FloatField(default=0.0)
 	stock = models.FloatField(default=0.0)
 	updated_date = models.DateTimeField(auto_now_add=True)
+	min_stock = models.FloatField(default=0.0)
 
 	class Meta:
 		db_table = 'product_stock'

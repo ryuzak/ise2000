@@ -26,7 +26,6 @@ class CreateProductStockInitialAPIView(APIView):
 		prod_id = prod_stock['product']['id']
 		del prod_stock['product']
 		prod_stock['product'] = prod_id
-		print(prod_stock)
 		serializer = ProductStockSerializer(data=prod_stock)
 		serializer.is_valid(raise_exception=True)
 		serializer.save()
