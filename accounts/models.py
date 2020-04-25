@@ -42,7 +42,7 @@ class UserManager(BaseUserManager):
             is_active=True,
             is_superuser=True,
             is_staff=True,
-            is_superadmin=True
+            #is_superadmin=True
         )
         user.set_password(password)
         user.save()
