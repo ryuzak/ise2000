@@ -20,7 +20,7 @@ class UserSerializer(serializers.ModelSerializer):
 			last_name = validated_data['last_name'],
 			phone = validated_data['phone'],
 			position = validated_data['position'],
-			picture = validated_data['picture'],
+			picture = validated_data.get('picture', ''),
 			is_active = True
 		)
 		password = get_random_string(15)
