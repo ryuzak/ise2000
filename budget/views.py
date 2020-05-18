@@ -5,8 +5,8 @@ from rest_framework import status
 
 from django.shortcuts import get_object_or_404
 
-from .models import Budget, BudgetProducts
-from .serializers import BudgetSerializer, BudgetProductSerializer
+from .models import Budget, BudgetProducts, BudgetConceptProduct
+from .serializers import BudgetSerializer, BudgetProductSerializer, BudgetConceptProductSerializer
 
 class BudgetCreateAPIView(APIView):
     permission_classes = (IsAuthenticated,)
@@ -17,15 +17,20 @@ class BudgetCreateAPIView(APIView):
         budget_serializer = BudgetSerializer(data=budget_data)
         budget_serializer.is_valid(raise_exception=True)
         budget_serializer.save()
-        budget_instance = budget_serializer.instance
-        for product in request.data['products']:
-            product['budget'] = budget_serializer.data['id']
-            product_serializer = BudgetProductSerializer(data=product)
-            product_serializer.is_valid(raise_exception=True)
-            product_serializer.save()
-            
-        budget = BudgetSerializer(instance=budget_instance)
-        return Response(budget.data, status=status.HTTP_201_CREATED)
+        for concept in budget_data['concepts']:
+            concept['budget'] = budget_serializer.data['id']
+            concept_serializer = BudgetConceptProductSerializer(data=concept)
+            concept_serializer.is_valid(raise_exception=True)
+            concept_serializer.save()
+            for product in concept['products']:
+                product['budget'] = budget_serializer.data['id']
+                product['concept'] = concept_serializer.data['id']
+                print(product)
+                product_serializer = BudgetProductSerializer(data=product)
+                product_serializer.is_valid(raise_exception=True)
+                product_serializer.save()
+
+        return Response(budget_serializer.data, status=status.HTTP_201_CREATED)
 
 class BudgetDetailAPIView(APIView):
     permission_classes = (IsAuthenticated, )
