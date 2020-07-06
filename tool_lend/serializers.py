@@ -12,7 +12,7 @@ class ToolLendSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = ToolLend
-		fields = ('id', 'lend_date', 'building', 'user', 'return_date', 'notes', )
+		fields = ('id', 'lend_date', 'building', 'user', 'return_date', 'notes', 'status', )
 
 	def to_representation(self, instance):
 		response = super().to_representation(instance)
@@ -31,17 +31,20 @@ class ToolLendSerializer(serializers.ModelSerializer):
 		return toollend
 
 	def update(self, instance, validated_data):
-		instance.lend_date = validated_data.get('lend_date', None)
-		instance.return_date = validated_data.get('return_date', None)
-		instance.notes = validated_data.get('notes', None)
+		instance.lend_date = validated_data.get('lend_date', instance.lend_date)
+		instance.return_date = validated_data.get('return_date', instance.return_date)
+		instance.notes = validated_data.get('notes', instance.notes)
+		instance.status = validated_data.get('status', False)
+		print(instance.status)
 		instance.save()
+		print(instance.status)
 		return instance
 
 class ToolLendBridgeSerializer(serializers.ModelSerializer):
 	
 	class Meta:
 		model = ToolLendbridge
-		fields = ('tool', 'lend', 'quantity')
+		fields = ('tool', 'lend', 'quantity', 'status', )
 
 	def to_representation(self, instance):
 		response = super().to_representation(instance)

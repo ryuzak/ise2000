@@ -57,6 +57,7 @@ urlpatterns = [
     path('order/purchase/', include('purchase_order.urls',)),
     path('providers/', include('provider.urls',)),
     path('budgets/', include('budget.urls',)),
+    path('concepts/', include('prebuild_concepts.urls',)),
 
     re_path(r'^swagger(?P<format>\.json|\.yaml|\.xml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

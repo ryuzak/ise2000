@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'tool_lend',
     'provider',
     'budget',
+    'prebuild_concepts',
 
     #third-party
     'rest_framework',

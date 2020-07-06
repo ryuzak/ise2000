@@ -6,7 +6,7 @@ from .models import Tool
 class ToolSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tool
-        fields = ['id', 'name', 'model', 'brand', 'serial_number', 'category', 'status']
+        fields = ['id', 'name', 'model', 'code', 'brand', 'serial_number', 'category', 'status']
 
     def to_representation(self, instance):
         response = super().to_representation(instance)
@@ -17,6 +17,7 @@ class ToolSerializer(serializers.ModelSerializer):
         instance.name = validated_data.get('name', instance.name)
         instance.model = validated_data.get('model', instance.model)
         instance.brand = validated_data.get('brand', instance.brand)
+        instance.code = validated_data.get('code', instance.code)
         instance.serial_number = validated_data.get('serial_number', instance.serial_number)
         instance.category = validated_data.get('category', instance.category)
         instance.save()

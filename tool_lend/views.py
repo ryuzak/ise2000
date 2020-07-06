@@ -28,6 +28,15 @@ class CreateRetrieveToolLendsAPIView(APIView):
 		
 		return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+class RetrieveToolLendsUserAPIView(APIView):
+	permission_classes = (IsAuthenticated, )
+
+	def get(self, request, user_id):
+		print(ToolLend.objects.filter(user_id=user_id))
+		lend_list = ToolLend.objects.filter(user__pk = user_id)
+		serializer = ToolLendSerializer(lend_list, many=True)
+		return Response(serializer.data, status=status.HTTP_200_OK)
+
 class RetrieveUpdateToolLendsAPIView(APIView):
 	permission_classes = (IsAuthenticated,)
 

@@ -27,6 +27,22 @@ class RetrieveProductsAPIView(APIView):
 		serializer = ProductSerializer(prods, many=True)
 		return Response(serializer.data, status=status.HTTP_200_OK)
 
+class RetrieveProductsNameAPIView(APIView):
+	permission_classes = (IsAuthenticated,)
+
+	def get(self, get, name_query):
+		prods = Product.objects.filter(status=True, name__icontains=name_query)
+		serializer = ProductSerializer(prods, many=True)
+		return Response(serializer.data, status=status.HTTP_200_OK)
+
+class RetrieveProductsDescriptionAPIView(APIView):
+	permission_classes = (IsAuthenticated, )
+
+	def get(self, get, description_query):
+		prods = Product.objects.filter(status=True, description__icontains=description_query)
+		serializer = ProductSerializer(prods, many=True)
+		return Response(serializer.data, status=status.HTTP_200_OK)
+
 class RetrieveUpdateDeleteProductAPIView(APIView):
 	permission_classes = (IsAuthenticated,)
 

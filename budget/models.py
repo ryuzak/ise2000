@@ -24,6 +24,7 @@ class Budget(models.Model):
 class BudgetConceptProduct(models.Model):
     name = models.CharField(max_length=256)
     budget = models.ForeignKey(Budget, on_delete=models.CASCADE, null=True)
+    code = models.CharField(max_length=256)
 
     class Meta:
         db_table = 'budget_concepts'

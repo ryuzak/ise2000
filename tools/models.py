@@ -9,6 +9,7 @@ def tool_image(self, filename):
 class Tool(models.Model):
 	name = models.CharField(max_length=75)
 	model = models.CharField(max_length=75)
+	code = models.CharField(max_length=75)
 	brand = models.CharField(max_length=100)
 	serial_number = models.IntegerField(default=0)
 	status = models.BooleanField(default=True)

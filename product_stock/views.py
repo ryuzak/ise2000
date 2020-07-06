@@ -70,3 +70,11 @@ class RetrieveProductNameListAPIView(APIView):
 		prod_stock = ProductStock.objects.filter(product__name__icontains=prod_name)
 		serializer = ProductStockSerializer(prod_stock, many=True)
 		return Response(serializer.data, status=status.HTTP_200_OK)
+
+class RetrieveProductDecriptionListAPIView(APIView):
+	permission_classes = (IsAuthenticated, )
+
+	def get(self, request, description_query):
+		prod_stock = ProductStock.objects.filter(product__description__icontains=description_query)
+		serializer = ProductStockSerializer(prod_stock, many=True)
+		return Response(serializer.data, status=status.HTTP_200_OK)

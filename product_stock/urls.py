@@ -7,4 +7,5 @@ urlpatterns = [
 	path('get/<slug:prod_code>/', views.RetrieveProductCodeAPIView.as_view()),
 	path('create/initial/', views.CreateProductStockInitialAPIView.as_view()),
 	path('name/<str:prod_name>/', views.RetrieveProductNameListAPIView.as_view()),
+	path('description/<str:description_query>/', views.RetrieveProductDecriptionListAPIView.as_view()),
 ]

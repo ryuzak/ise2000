@@ -36,7 +36,7 @@ class RetrieveToolModelAPIView(APIView):
 
 	def get(self, request, tool_model):
 		try:
-			tool_obj = Tool.objects.get(model=tool_model)
+			tool_obj = Tool.objects.get(code=tool_model)
 			serializer = ToolSerializer(tool_obj)
 		except Tool.DoesNotExist:
 			return Response({'message':'La herramienta no ha sido registrada'}, status=status.HTTP_404_NOT_FOUND)
@@ -54,7 +54,8 @@ class RetrieveToolModelStockAPIView(APIView):
 
 	def get(self, request, tool_model):
 		try:
-			tool_obj = Tool.objects.get(model=tool_model)
+			print(tool_model)
+			tool_obj = Tool.objects.get(code=tool_model)
 			serializer = ToolSerializer(tool_obj)
 		except Tool.DoesNotExist:
 			return Response({'message':'La herramienta no ha sido registrada'}, status=status.HTTP_404_NOT_FOUND)
