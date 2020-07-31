@@ -18,6 +18,14 @@ class RetrieveProductStockAPIView(APIView):
 		serializer = ProductStockSerializer(stock, many=True)
 		return Response(serializer.data, status=status.HTTP_200_OK)
 
+class ReterieveProductIdAPIView(APIView):
+	permission_classes = (IsAuthenticated, )
+
+	def get(self, request, prod_id):
+		stock_obj = get_object_or_404(ProductStock, product_id=prod_id)
+		serializer = ProductStockSerializer(stock_obj)
+		return Response(serializer.data, status=status.HTTP_200_OK)
+
 class CreateProductStockInitialAPIView(APIView):
 	permission_classes = (IsAuthenticated, )
 

@@ -10,6 +10,7 @@ from accounts.serializers import UserSerializer
 
 from .models import PurchaseOrder, PurchaseOrderProduct
 from product_stock.models import ProductStock
+from exit_order.models import ExitOrderProduct, ExitOrder
 
 class RetrievePurchaseOrdersAPIView(APIView):
     permission_classes = (IsAuthenticated, )
@@ -32,13 +33,40 @@ class CreatePurchaseOrderAPIView(APIView):
 
     def post(self, request):
         order_obj = request.data
-        print(order_obj)
         order_obj['created_by'] = request.user.pk
         order_obj['delivery_date'] = f'{order_obj["delivery_date"]}T00:00:00'
         serializer = PurchaseOrderSerializer(data=order_obj)
         serializer.is_valid(raise_exception=True)
         serializer.save(products=order_obj['products'])
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+class CreatePurchaseExitOrderAPIView(APIView):
+    permission_classes = (IsAuthenticated, )
+
+    def post(self, request):
+        order_obj = request.data
+        order_obj['created_by'] = request.user.pk
+        order_obj['delivery_date'] = f'{order_obj["delivery_date"]}T00:00:00'
+        serializer = PurchaseOrderSerializer(data=order_obj)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(products=order_obj['products'])
+        exitorder_id = 0
+        for prod in order_obj['products']:
+            prod_obj = ExitOrderProduct.objects.get(pk=prod['id'])
+            exitorder_id = prod_obj.order.id
+            prod_obj.parcial_left = 0
+            prod_obj.parcial = False
+            prod_obj.status = True
+            prod_obj.parcial_quantity = prod_obj.quantity
+            prod_obj.save()
+        print(ExitOrderProduct.objects.filter(order_id=exitorder_id).count())
+        if (ExitOrderProduct.objects.filter(order_id=exitorder_id, parcial=True).count() == 0):
+            exitorder = ExitOrder.objects.get(pk=exitorder_id)
+            exitorder.status = True
+            exitorder.save()
+        
+
+        return Response(serializer.data, status=status.HTTP_201_CREATED)        
 
 
 class RetrievePurshaseOrderAPIView(APIView):

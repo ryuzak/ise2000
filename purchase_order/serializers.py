@@ -48,7 +48,6 @@ class PurchaseOrderSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data, products=None):
         order_obj = PurchaseOrder(
-            #purchase_date = validated_data.get('purchase_date', '1970-01-01T00:00:00'),
             delivery_date = validated_data.get('delivery_date', '1970-01-01T00:00:00'),
             building = validated_data.get('building', None),
             created_by = validated_data.get('created_by', None),
